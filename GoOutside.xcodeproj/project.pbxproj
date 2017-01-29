@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E98241B51E3D467E00908E90 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98241B41E3D467E00908E90 /* Errors.swift */; };
+		E98241B91E3D60B900908E90 /* WeatherCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98241B81E3D60B900908E90 /* WeatherCollectionViewController.swift */; };
+		E98241C01E3D814E00908E90 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98241BE1E3D814E00908E90 /* WeatherCollectionViewCell.swift */; };
 		E9ADCCF71E3BF143006850A6 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ADCCF61E3BF143006850A6 /* Weather.swift */; };
-		E9ADCCFD1E3C20FB006850A6 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ADCCFC1E3C20FB006850A6 /* WeatherTableViewController.swift */; };
 		E9ADCCFF1E3C2185006850A6 /* SharedURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ADCCFE1E3C2185006850A6 /* SharedURLSession.swift */; };
 		E9ADCD011E3C22DB006850A6 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ADCD001E3C22DB006850A6 /* Shared.swift */; };
 		E9B111E41E398E0200CF362E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B111E31E398E0200CF362E /* AppDelegate.swift */; };
@@ -20,8 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E98241B41E3D467E00908E90 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		E98241B81E3D60B900908E90 /* WeatherCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewController.swift; sourceTree = "<group>"; };
+		E98241BE1E3D814E00908E90 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9ADCCF61E3BF143006850A6 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		E9ADCCFC1E3C20FB006850A6 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		E9ADCCFE1E3C2185006850A6 /* SharedURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedURLSession.swift; sourceTree = "<group>"; };
 		E9ADCD001E3C22DB006850A6 /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		E9B111E01E398E0200CF362E /* GoOutside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoOutside.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +76,11 @@
 				E9B111F21E398E0200CF362E /* Info.plist */,
 				E9B111EA1E398E0200CF362E /* GoOutside.xcdatamodeld */,
 				E9ADCCF61E3BF143006850A6 /* Weather.swift */,
-				E9ADCCFC1E3C20FB006850A6 /* WeatherTableViewController.swift */,
 				E9ADCCFE1E3C2185006850A6 /* SharedURLSession.swift */,
 				E9ADCD001E3C22DB006850A6 /* Shared.swift */,
+				E98241B41E3D467E00908E90 /* Errors.swift */,
+				E98241B81E3D60B900908E90 /* WeatherCollectionViewController.swift */,
+				E98241BE1E3D814E00908E90 /* WeatherCollectionViewCell.swift */,
 			);
 			path = GoOutside;
 			sourceTree = "<group>";
@@ -153,8 +159,10 @@
 			files = (
 				E9ADCD011E3C22DB006850A6 /* Shared.swift in Sources */,
 				E9ADCCF71E3BF143006850A6 /* Weather.swift in Sources */,
-				E9ADCCFD1E3C20FB006850A6 /* WeatherTableViewController.swift in Sources */,
+				E98241C01E3D814E00908E90 /* WeatherCollectionViewCell.swift in Sources */,
+				E98241B91E3D60B900908E90 /* WeatherCollectionViewController.swift in Sources */,
 				E9B111EC1E398E0200CF362E /* GoOutside.xcdatamodeld in Sources */,
+				E98241B51E3D467E00908E90 /* Errors.swift in Sources */,
 				E9ADCCFF1E3C2185006850A6 /* SharedURLSession.swift in Sources */,
 				E9B111E61E398E0200CF362E /* ViewController.swift in Sources */,
 				E9B111E41E398E0200CF362E /* AppDelegate.swift in Sources */,

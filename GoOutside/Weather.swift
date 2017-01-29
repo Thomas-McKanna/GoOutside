@@ -8,18 +8,13 @@
 
 import Foundation
 
-//  serialization error cases
-enum SerializationError: Error {
-    case missing(String)
-    case invalid(String, Any)
-}
-
 struct DailyWeather {
     enum WeatherType: String {
         case clearDay, clearNight, rain, snow, sleet, wind, fog, cloudy, partlyCloudyDay, partlyCloudyNight, unclear
     }
     
-    let time: NSDate
+    let time: Date
+    let weekday: Int
     let weather: WeatherType
     let tempMin: Double
     let tempMax: Double
@@ -61,7 +56,8 @@ struct DailyWeather {
         }
         
         // initialize properties
-        self.time = NSDate.init(timeIntervalSince1970: time)
+        self.time = Date.init(timeIntervalSince1970: time)
+        self.weekday = getDay(FromDate: self.time)!
         self.weather = weather
         self.tempMin = tempMin
         self.tempMax = tempMax
@@ -79,6 +75,7 @@ struct DailyWeather {
         
         let url: URL! = getURLWith(Path: path, Query: [URLQueryItem(name: queryKey, value: queryValue)])
         
+        print("Requesting data: coord(\(coords))")
         // get data from web server and parse
         urlSession.session.dataTask(with: url) {(data, response, error) in
             var weather: [DailyWeather] = []
@@ -86,6 +83,7 @@ struct DailyWeather {
             if let error = error {
                 print("Error: \(error)")
             } else if let data = data {
+                print("Data has arrived: \(data)")
                 if let outerJSON = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any] {
                     let innerJSON = outerJSON["daily"] as! [String : Any]
                     for case let day in innerJSON["data"] as! [[String : Any]] {
@@ -96,20 +94,15 @@ struct DailyWeather {
                 }
             }
             
+            start = DispatchTime.now()
+            
+            print("Data has been parsed...")
             completion(weather)
         }.resume()
     }
 }
 
-func convertToIconString(from s: String) -> String {
-    switch s {
-        case "clear-day": return "clearDay"
-        case "clear-night": return "clearNight"
-        case "partly-cloudy-day": return "partlyCloudyDay"
-        case "partly-cloudy-night": return "partlyCloudyNight"
-        default: return s
-    }
-}
+
 
 
 
