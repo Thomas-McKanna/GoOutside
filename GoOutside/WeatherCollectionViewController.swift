@@ -17,9 +17,12 @@ private let cellHeight: CGFloat = 75.0
 class WeatherCollectionViewController: UICollectionViewController {
     
     var weatherForWeek = [DailyWeather]()
+    var bgImageView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "WeatherTableBackgroundHorizontal4"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        prepareBackgroundView()
         
         DailyWeather.getWeather(at: (38.593549,-90.62556)) { weather in
             self.weatherForWeek = weather
@@ -29,8 +32,13 @@ class WeatherCollectionViewController: UICollectionViewController {
             print("TIME: \(Double(end!.uptimeNanoseconds - start!.uptimeNanoseconds) / 1_000_000_000)")
         }
         
-        // set background
-        collectionView?.backgroundView = UIImageView(image: #imageLiteral(resourceName: "WeatherTableBackground"))
+        //decideBackgroundPicture()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        bgImageView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        self.refreshUI()
     }
     
     // used to refresh UI on main thread (for faster refresh)
@@ -38,6 +46,13 @@ class WeatherCollectionViewController: UICollectionViewController {
         DispatchQueue.main.async(execute: {
             self.collectionView?.reloadData()
         })
+    }
+    
+    func prepareBackgroundView() {
+        bgImageView.contentMode = .scaleAspectFill
+        collectionView?.backgroundView = UIView()
+        bgImageView.frame = CGRect(x: 0, y: 0, width: (collectionView?.frame.size.width)!, height: (collectionView?.frame.size.height)!)
+        collectionView?.backgroundView?.addSubview(bgImageView)
     }
 }
 
