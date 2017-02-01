@@ -22,6 +22,9 @@ class WeatherCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // temp 
+        makeTempScoringArray()
+        
         prepareBackgroundView()
         
         DailyWeather.getWeather(at: (38.593549,-90.62556)) { weather in
@@ -71,14 +74,17 @@ extension WeatherCollectionViewController {
         
         dateFormatter.dateFormat = "MM/dd"
         let day = weatherForWeek[indexPath.row]
+        let score = scoreDay(withTemp: (day.tempMax+day.tempMin)/2, andPrecipProbability: day.precipChance)
         
         // Configure the cell...
         cell.dayLabel.text = convertToWeekday(Number: day.weekday)
         cell.dateLabel.text = dateFormatter.string(from: day.time)
-        cell.weatherLabel.text = day.weather.rawValue
-        cell.highLabel.text = String(day.tempMax)
-        cell.lowLabel.text = String(day.tempMin)
-        cell.percentLabel.text = "(??)%"
+        cell.weatherLabel.text = convertToCleanText(Weather: day.weather.rawValue)
+        cell.highLabel.text = "High: " + String(day.tempMax)
+        cell.percentLabel.text = String(score)
+        
+        cell.weatherLabel.textColor = returnColor(ForWeather: day.weather.rawValue)
+        cell.percentLabel.textColor = returnColor(ForScore: score)
         
         cell.layer.cornerRadius = 4
         

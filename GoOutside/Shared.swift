@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import UIKit.UIColor
 
-// constants
+// global constants
 let urlSession: SharedURLSession! = SharedURLSession()
 let dateFormatter = DateFormatter()
 let urlBase = "https://api.darksky.net"
 let WEATHER_CELL_ID = "weatherCell"
+let MAX_TEMP = 125
+let MIN_TEMP = -30
+let PRECIP_PENALTY = 70.0
+
+// global variables
+var IDEAL_TEMP = 70.0
 
 // temporary (for performance measure)
 var start: DispatchTime?
@@ -54,4 +61,70 @@ func convertToWeekday(Number n: Int) -> String {
         case 7: return "Saturday"
         default: return "Error"
     }
+}
+
+func convertToCleanText(Weather w: String) -> String {
+    switch w {
+        case "clearDay": return "Sunny"
+        case "clearNight": return "Sunny"
+        case "partlyCloudyDay": return "Cloudy"
+        case "partlyCloudyNight": return "Cloudy"
+        case "cloudy": return "Cloudy"
+        case "rain": return "Rain"
+        case "snow": return "Snow"
+        case "sleet": return "Sleet"
+        case "wind": return "Wind"
+        case "fog": return "Fog"
+        default: return "Error"
+    }
+}
+
+func returnColor(ForWeather w: String) -> UIColor {
+    switch w {
+    case "clearDay": return UIColor.yellow
+    case "clearNight": return UIColor.yellow
+    case "partlyCloudyDay": return UIColor.lightGray
+    case "partlyCloudyNight": return UIColor.lightGray
+    case "cloudy": return UIColor.lightGray
+    case "rain": return UIColor.blue
+    case "snow": return UIColor.white
+    case "sleet": return UIColor.cyan
+    case "wind": return UIColor.magenta
+    case "fog": return UIColor.darkGray
+    default: return UIColor.black
+    }
+}
+
+func returnColor(ForScore s: Int) -> UIColor {
+    if s >= 90 {
+        return UIColor.black
+    }
+    if s >= 80 {
+        return UIColor.black
+    }
+    if s >= 70 {
+        return UIColor.black
+    }
+    if s >= 60 {
+        return UIColor.black
+    }
+    if s >= 50 {
+        return UIColor.black
+    }
+    if s >= 40 {
+        return UIColor.black
+    }
+    if s >= 30 {
+        return UIColor.black
+    }
+    if s >= 20 {
+        return UIColor.black
+    }
+    if s >= 10 {
+        return UIColor.black
+    }
+    if s >= 0 {
+        return UIColor.black
+    }
+    return UIColor.black
 }

@@ -16,6 +16,7 @@ struct DailyWeather {
     let time: Date
     let weekday: Int
     let weather: WeatherType
+    let precipChance: Double
     let tempMin: Double
     let tempMax: Double
     let apparentTempMin: Double
@@ -33,6 +34,11 @@ struct DailyWeather {
         }
         guard let weather = WeatherType(rawValue: convertToIconString(from: string)) else {
             throw SerializationError.invalid("icon (weather)", string)
+        }
+        
+        // extract precipitation probability
+        guard let precipChance = json["precipProbability"] as? Double else {
+            throw SerializationError.missing("precipitation probability")
         }
         
         // extract minimum temparature
@@ -59,6 +65,7 @@ struct DailyWeather {
         self.time = Date.init(timeIntervalSince1970: time)
         self.weekday = getDay(FromDate: self.time)!
         self.weather = weather
+        self.precipChance = precipChance
         self.tempMin = tempMin
         self.tempMax = tempMax
         self.apparentTempMin = apparentTempMin
