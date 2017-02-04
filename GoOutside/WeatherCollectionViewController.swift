@@ -8,7 +8,9 @@
 
 import UIKit
 
-private let reuseableIdentifier = "weatherCell"
+private let reuseableIdentifierForCell = "weatherCell"
+private let reusableIdentifierForHeader = "headerView"
+private let reusableIdentifierForFooter = "footerView"
 private let itemsPerRow = 1
 let sectionInsets = UIEdgeInsets(top: 15.0, left: 50.0, bottom: 15.0, right: 50.0)
 private let cellHeight: CGFloat = 75.0
@@ -41,6 +43,7 @@ class WeatherCollectionViewController: UICollectionViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         bgImageView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         
+        
         self.refreshUI()
     }
     
@@ -70,7 +73,7 @@ extension WeatherCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableIdentifier, for: indexPath) as! WeatherCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseableIdentifierForCell, for: indexPath) as! WeatherCollectionViewCell
         
         dateFormatter.dateFormat = "MM/dd"
         let day = weatherForWeek[indexPath.row]
@@ -113,6 +116,7 @@ extension WeatherCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        print(section)
         return sectionInsets.top
     }
     
@@ -121,5 +125,46 @@ extension WeatherCollectionViewController: UICollectionViewDelegateFlowLayout {
 private extension WeatherCollectionViewController {
     func dayFor(IndexPath indexPath: IndexPath) -> DailyWeather {
         return weatherForWeek[indexPath.row]
+    }
+}
+
+extension WeatherCollectionViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        var reusableView: UICollectionReusableView? = nil
+        
+        if kind == UICollectionElementKindSectionHeader {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: reusableIdentifierForHeader, for: indexPath) as! WeatherCollectionReusableView
+            headerView.logoLabel.text = "GoOutside"
+            headerView.logoLabel.font = UIFont.init(name: "WildRide", size: 125.0)
+            headerView.logoLabel.textColor = colorSpring
+            
+            headerView.view.backgroundColor = colorDarkGrayReducedOpacity
+            headerView.layer.cornerRadius = 4
+            
+            headerView.dateLabel.textColor = UIColor.white
+            headerView.weatherLabel.textColor = UIColor.white
+            headerView.scoreLabel.textColor = UIColor.white
+            
+            if UIApplication.shared.statusBarOrientation.isPortrait {
+                headerView.scoreLabel.text = "Score"
+            }
+            else {
+                headerView.scoreLabel.text = "Score (1-100)"
+            }
+            
+            reusableView = headerView
+        }
+        
+        if kind == UICollectionElementKindSectionFooter {
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: reusableIdentifierForFooter, for: indexPath) as! WeatherFooterCollectionReusableView
+            
+            footerView.footerLabel.text = "Powered by Dark Sky"
+            
+            reusableView = footerView
+        }
+        
+        return reusableView!
     }
 }
