@@ -16,11 +16,12 @@ let urlBase = "https://api.darksky.net"
 let WEATHER_CELL_ID = "weatherCell"
 let MAX_TEMP = 125
 let MIN_TEMP = -30
-let PRECIP_PENALTY = 70.0
 let DEGREE_SYMBOL = "\u{00B0}"
+let userDefaults = UserDefaults.standard
 
 // global variables
 var IDEAL_TEMP = 70.0
+var PRECIP_PENALTY = 70.0
 
 // temporary (for performance measure)
 var start: DispatchTime?

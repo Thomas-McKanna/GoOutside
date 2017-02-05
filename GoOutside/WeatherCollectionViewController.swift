@@ -29,6 +29,9 @@ class WeatherCollectionViewController: UICollectionViewController {
         
         prepareBackgroundView()
         
+        IDEAL_TEMP = userDefaults.double(forKey: "idealTemp")
+        PRECIP_PENALTY = Double(userDefaults.integer(forKey: "precipPref"))
+        
         DailyWeather.getWeather(at: (38.593549,-90.62556)) { weather in
             self.weatherForWeek = weather
             self.refreshUI()
@@ -45,6 +48,11 @@ class WeatherCollectionViewController: UICollectionViewController {
         
         
         self.refreshUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        makeTempScoringArray()
+        refreshUI()
     }
     
     // used to refresh UI on main thread (for faster refresh)
