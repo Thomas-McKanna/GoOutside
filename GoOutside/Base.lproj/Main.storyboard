@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aQc-iB-vOp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aQc-iB-vOp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -130,7 +130,7 @@
         <scene sceneID="uca-eN-5ye">
             <objects>
                 <collectionViewController id="V3c-sh-FxD" customClass="WeatherCollectionViewController" customModule="GoOutside" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Tme-vC-XFJ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Tme-vC-XFJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,7 +142,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="weatherCell" id="2w1-Rt-c6a" customClass="WeatherCollectionViewCell" customModule="GoOutside" customModuleProvider="target">
-                                <rect key="frame" x="51" y="150" width="274" height="86"/>
+                                <rect key="frame" x="50.5" y="150" width="274" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="274" height="86"/>
@@ -344,8 +344,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZZ-VJ-qbF">
                                         <rect key="frame" x="0.0" y="-64" width="375" height="700"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your thoughts on precipitation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN5-BI-uWT">
-                                                <rect key="frame" x="16" y="238" width="343" height="26"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your thoughts on precipitation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN5-BI-uWT">
+                                                <rect key="frame" x="16" y="287" width="298" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -357,10 +357,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHq-59-J7j">
-                                                <rect key="frame" x="16" y="115" width="343" height="115"/>
+                                                <rect key="frame" x="16" y="164" width="343" height="115"/>
                                                 <subviews>
                                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="70" minValue="50" maxValue="90" minimumValueImage="snowIcon" maximumValueImage="sunIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A3l-d3-6x3">
-                                                        <rect key="frame" x="25" y="51" width="293" height="31"/>
+                                                        <rect key="frame" x="25" y="51" width="293" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <connections>
                                                             <action selector="idealTempChanged:" destination="WM6-HX-0KV" eventType="valueChanged" id="38S-BN-eco"/>
@@ -384,7 +384,7 @@
                                                 <rect key="frame" x="16" y="30" width="343" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-Oy-9qT">
-                                                        <rect key="frame" x="115.5" y="6" width="112" height="33.5"/>
+                                                        <rect key="frame" x="116" y="6" width="112" height="34"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -397,8 +397,20 @@
                                                     <constraint firstItem="TJr-Oy-9qT" firstAttribute="centerY" secondItem="pmW-Ki-vfA" secondAttribute="centerY" id="uGx-3K-M3r"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LeS-K6-bHG">
-                                                <rect key="frame" x="16" y="272" width="343" height="120"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide the nob left or right to adjust how harshly temperature is scored" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOx-Ra-rgw">
+                                                <rect key="frame" x="16" y="115" width="336" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll up or down with your finger to adjust how harshly precipitation is scored" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9R-Dc-Dia">
+                                                <rect key="frame" x="16" y="319" width="343" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeS-K6-bHG">
+                                                <rect key="frame" x="16" y="368" width="343" height="120"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hxf-mV-Obm">
                                                         <rect key="frame" x="8" y="8" width="327" height="104"/>
@@ -415,18 +427,24 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="rN5-BI-uWT" firstAttribute="leading" secondItem="2ZZ-VJ-qbF" secondAttribute="leading" constant="16" id="58O-pS-uJr"/>
+                                            <constraint firstItem="rN5-BI-uWT" firstAttribute="leading" secondItem="2ZZ-VJ-qbF" secondAttribute="leading" constant="16" id="4gI-QS-HdK"/>
                                             <constraint firstItem="Hwn-KT-0nw" firstAttribute="leading" secondItem="2ZZ-VJ-qbF" secondAttribute="leading" constant="16" id="5rS-l5-GbS"/>
+                                            <constraint firstItem="Z9R-Dc-Dia" firstAttribute="top" secondItem="rN5-BI-uWT" secondAttribute="bottom" constant="8" id="6d6-sx-asg"/>
+                                            <constraint firstItem="vHq-59-J7j" firstAttribute="top" secondItem="eOx-Ra-rgw" secondAttribute="bottom" constant="8" id="6up-PO-uj1"/>
+                                            <constraint firstItem="rN5-BI-uWT" firstAttribute="top" secondItem="vHq-59-J7j" secondAttribute="bottom" constant="8" id="A6U-ae-69i"/>
+                                            <constraint firstAttribute="trailing" secondItem="eOx-Ra-rgw" secondAttribute="trailing" constant="23" id="KS8-by-7dp"/>
                                             <constraint firstAttribute="height" constant="700" id="NWc-Tk-WnY"/>
-                                            <constraint firstItem="rN5-BI-uWT" firstAttribute="top" secondItem="vHq-59-J7j" secondAttribute="bottom" constant="8" id="RwG-3F-0py"/>
                                             <constraint firstAttribute="trailing" secondItem="pmW-Ki-vfA" secondAttribute="trailing" constant="16" id="UDk-HT-svb"/>
                                             <constraint firstItem="vHq-59-J7j" firstAttribute="centerX" secondItem="2ZZ-VJ-qbF" secondAttribute="centerX" id="UfJ-rY-k4f"/>
-                                            <constraint firstItem="vHq-59-J7j" firstAttribute="top" secondItem="Hwn-KT-0nw" secondAttribute="bottom" constant="8" id="Y3Z-NO-mbQ"/>
+                                            <constraint firstItem="Z9R-Dc-Dia" firstAttribute="leading" secondItem="2ZZ-VJ-qbF" secondAttribute="leading" constant="16" id="UqD-NX-NaY"/>
+                                            <constraint firstAttribute="trailing" secondItem="Z9R-Dc-Dia" secondAttribute="trailing" constant="16" id="VD5-Gm-ODj"/>
+                                            <constraint firstItem="LeS-K6-bHG" firstAttribute="top" secondItem="Z9R-Dc-Dia" secondAttribute="bottom" constant="8" id="VnU-Lp-ocC"/>
                                             <constraint firstItem="pmW-Ki-vfA" firstAttribute="top" secondItem="2ZZ-VJ-qbF" secondAttribute="top" constant="30" id="cxa-fV-3YM"/>
                                             <constraint firstItem="Hwn-KT-0nw" firstAttribute="top" secondItem="pmW-Ki-vfA" secondAttribute="bottom" constant="8" id="dZE-wr-1wY"/>
+                                            <constraint firstItem="eOx-Ra-rgw" firstAttribute="top" secondItem="Hwn-KT-0nw" secondAttribute="bottom" constant="8" id="mwz-1b-ZSi"/>
                                             <constraint firstItem="pmW-Ki-vfA" firstAttribute="leading" secondItem="2ZZ-VJ-qbF" secondAttribute="leading" constant="16" id="q3r-Jl-FSr"/>
-                                            <constraint firstItem="LeS-K6-bHG" firstAttribute="top" secondItem="rN5-BI-uWT" secondAttribute="bottom" constant="8" id="vSp-l2-HR4"/>
                                             <constraint firstItem="LeS-K6-bHG" firstAttribute="centerX" secondItem="2ZZ-VJ-qbF" secondAttribute="centerX" id="wmA-1a-nm9"/>
+                                            <constraint firstItem="eOx-Ra-rgw" firstAttribute="leading" secondItem="2ZZ-VJ-qbF" secondAttribute="leading" constant="16" id="xhy-C3-8Pn"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -461,7 +479,7 @@
         <scene sceneID="8d5-DP-TZZ">
             <objects>
                 <navigationController id="aQc-iB-vOp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tJR-mM-boS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tJR-mM-boS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
